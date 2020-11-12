@@ -1,0 +1,263 @@
+.header {
+	display: flex;
+	align-items: center;
+	background-color: #ffffff;
+	border-bottom: 1px solid #d2e6e6;
+	height: 80px;
+	&-wrap {
+		justify-content: flex-start;
+		display: flex;
+		align-items: center;
+
+		@include desktop {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		@include mobile {
+		  justify-content: flex-end;
+		}
+	}
+	&-logo {
+		padding-left: 38px;
+		justify-content: flex-end;
+		.pic {
+		  background: url(../img/logo.svg) no-repeat;
+		  width: 180px;
+		  height: 26px;
+		  display: inline-block;
+
+		  @include only_tablet {
+		    width: 126px;
+		  }
+
+		  @include mobile {
+		    width: 140px;
+		    height: 18px;
+		  }
+		}
+		img {
+			width: 180px;
+			height: 26px;
+		}
+
+		@include only_tablet {
+		  padding-top: 14px;
+		  padding-left: 15px;
+		}
+
+		@include mobile {
+		  padding-left: 0;
+		  padding-top: 5px;
+		}
+	}
+	&-nav {
+		padding-right: 100px;
+		padding-left: 105px;
+
+		@include tablet {
+		  padding-right: 45px;
+		  padding-left: 45px;
+		}
+
+		@include only_tablet {
+		  padding-right: 10px;
+		  padding-left: 10px;
+		}
+
+		@include mobile {
+		  display: none;
+		}
+
+		> ul {
+			display: flex;
+			align-items: center;
+			> li {
+				position: relative;
+				margin-right: 47px;
+				&:last-child {
+					margin-right: 0;
+					a {
+						line-height: 20px;
+						padding: 13px 16px;
+						border: 2px solid $red;
+						background-color: transparent;
+						color: $red;
+						border-radius: 3px;
+						&:hover {
+							color: #ffffff;
+							background-color: $red;
+						}
+					}
+					a.active {
+						color: #ffffff;
+						background-color: $red;
+					}
+				}
+
+				&:hover > a {
+					color: $red;
+				}
+				&:hover > ul {
+					display: block;
+				}
+
+				> a {
+					line-height: 80px;
+					display: block;
+					color: $blue;
+					font-size: 14px;
+					text-transform: uppercase;
+					font-weight: bold;
+					letter-spacing: 1px;
+
+					&:hover {
+						color: $red;
+					}
+
+					@include only_tablet {
+					  font-size: 12px;
+					}
+				}
+
+				ul {
+					display: none;
+					top: 79px;
+					left: -30px;
+					position: absolute;
+					background-color: #ffffff;
+					z-index: 100;
+					width: 250px;
+					box-shadow: 0 5px 7px rgba(0,0,0,.1);
+					padding: 15px 0;
+					border-top: 1px solid #d2e6e6;
+					li {
+						padding: 0 30px;
+						&:hover {
+							background-color: #F0FAFB;
+						}
+						a {
+							font-size: 14px;
+							color: $blue;
+							line-height: 30px;
+							display: block;
+						}
+					}
+				}
+
+				@include tablet {
+				  	margin-right: 37px;
+				}
+
+				@include only_tablet {
+				 	margin-right: 6px;
+				}
+			}
+		}
+	}
+	
+
+	@include mobile {
+		justify-content: space-between;
+		height: 50px;
+		padding: 0 20px;
+	}
+}
+
+.header-contact {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	@include mobile{
+		display: none;
+	}
+	@include desktop {
+		margin-right: 102px;
+	}
+
+	b {
+		font-size: 21px;
+		color: $blue;
+	}
+	span {
+		font-size: 12px;
+		text-transform: uppercase;
+		color: $blue-light;
+		cursor: pointer;
+	}
+}
+
+
+.header-burger {
+	position: absolute;
+	right: 0;
+	padding-right: 22px;
+	padding-left: 24px;
+	cursor: pointer;
+	@include mobile {
+		position: static;
+		padding:0;
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		top: -24px;
+		left: 0;
+		width: 1px;
+		height: 80px;
+		background-color: #d2e6e6;
+
+		@include mobile {
+			display: none;
+		}
+	}
+
+	 .icon-burger {
+		color: $blue;
+		font-size: 30px;
+
+		@include mobile {
+			font-size: 25px;
+		}
+	 }
+}
+
+@include mobile {
+	.header-burger .icon-burger::before {
+		content: "\e91a";
+	}
+}
+
+
+.header-favorite {
+	position: absolute;
+	top: 81px;
+	right: 0;
+	width: 83px;
+	height: 80px;
+	background-color: #ffffff;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	@include mobile {
+		display: none;
+	}
+
+	span {
+		font-weight: 300;
+		font-size: 12px;
+		color: $red;
+		line-height: 28px;
+	}
+
+	.icon-star-bg {
+		font-size: 26px;
+		color: $red;
+
+		@include mobile {
+			font-size: 15px;
+		}
+	}
+}

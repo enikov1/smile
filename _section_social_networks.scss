@@ -1,0 +1,118 @@
+.social-network {
+	background-color: $act;
+	box-shadow: 5px 10px 20px rgba(0,51,71,.15);
+	border-radius: 10px;
+	padding: 55px 145px;
+	z-index: 2;
+	position: relative;
+	overflow: hidden;
+	@include mobile {
+		padding: 30px 20px 46px 20px;
+	}
+
+	&::after {
+		content: "\e916";
+		position: absolute;
+		top: 21px;
+		left: -115px;
+		color: #ffffff;
+		opacity: .6;
+		font-size: 13.7em;
+		font-family: 'icon';
+		z-index: -1;
+	}
+	&_header {
+		margin-bottom: 30px;
+		display: flex;
+		align-items: center;
+
+		@include mobile {
+			flex-direction: column;
+		}
+
+		.header-left {
+			margin-right: 35px;
+
+			@include mobile {
+				margin-right: 0;
+			}
+
+			span {
+				font-size: 45px;
+				font-weight: 200;
+				color: $blue;
+
+				@include only_tablet {
+					font-size: 32px;
+				}
+
+				@include mobile {
+					font-size: 24px;
+				}
+			}
+		}
+
+		.header-right {
+			width: 38%;
+
+			@include mobile {
+				width: 100%;
+			}
+
+			.descr {
+				font-size: 12px;
+				color: $blue;
+				font-weight: 300;
+
+				@include mobile {
+					font-size: 10px;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	&_form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		@include mobile {
+			flex-direction: column;
+		}
+	}
+}
+
+@include mobile {
+	.social-network_form .field,
+	.social-network_form .field-btn {
+		margin-bottom: 20px;
+	}
+}
+.field,
+.field-btn {
+	width: 320px;
+	border: 0;
+	outline: 0;
+	padding: 18px 30px;
+	border-radius: 25px;
+	display: inline-block;
+	@include mobile {
+		width: 100% !important;
+	}
+	@include only_tablet {
+		width: 200px;
+	}
+}
+.field {
+	color: #6e7072;
+	font-weight: 200;
+}
+.field-btn {
+	cursor: pointer;
+	background-color: $blue;
+	font-weight: bold;
+	color: $act;
+	text-transform: uppercase;
+	//width: 320px;
+}
